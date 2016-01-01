@@ -11,7 +11,18 @@ function makeScale(domain, range) {
   };
 }
 
-navigator.webkitGetUserMedia({audio:true}, function (stream) {
+// via https://code.google.com/p/chromium/issues/detail?id=420625#c1
+// and https://code.google.com/p/chromium/issues/detail?id=289396#c5
+var audioOpts = {
+  optional: [
+    {googEchoCancellation:false},
+    {googAutoGainControl:false},
+    {googNoiseSuppression:false},
+    {googHighpassFilter:false}
+  ]
+};
+
+navigator.webkitGetUserMedia({audio:audioOpts}, function (stream) {
   var src = ctx.createMediaStreamSource(stream),
       fft = ctx.createAnalyser();
   fft.minDecibels = -200;
