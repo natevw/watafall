@@ -4,8 +4,10 @@
   <title>WebAudio FFT waterfall</title>
   <style>
     canvas { height: 150px; width: 100%; background: black; }
+    #waterfall { height: auto; }
   </style>
 </head><body>
-  <canvas width=2048 height=256></canvas>
+  <canvas id=spectrum width=2048 height=256></canvas>
+  <canvas id=waterfall width=1024 height=100></canvas>
   <script src="code.js"></script>
 </body></html>
