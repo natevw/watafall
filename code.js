@@ -54,7 +54,7 @@ navigator.webkitGetUserMedia({audio:audioOpts}, function (stream) {
       for (var i = 0; i < a.length; i += 1) {
         var p = lineStart + (i << 2),
             z = mapZ(a[i]);
-        buf.data.fill(mapZ(a[i]), p, p + 2);
+        buf.data.fill(z, p, p + 3);
         buf.data[p+3] = 255;
       }
       gfx2.putImageData(buf, 0,-buf_line);      // buf_line should be at 0
